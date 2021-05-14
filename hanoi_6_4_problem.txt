@@ -1,0 +1,2 @@
+Initial state: d_0p_0 Nd_0p_1 Nd_0p_2 Nd_0p_3 d_1p_0 Nd_1p_1 Nd_1p_2 Nd_1p_3 d_2p_0 Nd_2p_1 Nd_2p_2 Nd_2p_3 d_3p_0 Nd_3p_1 Nd_3p_2 Nd_3p_3 d_4p_0 Nd_4p_1 Nd_4p_2 Nd_4p_3 d_5p_0 Nd_5p_1 Nd_5p_2 Nd_5p_3 
+Goal state: d_0p_3 Nd_0p_0 Nd_0p_1 Nd_0p_2 d_1p_3 Nd_1p_0 Nd_1p_1 Nd_1p_2 d_2p_3 Nd_2p_0 Nd_2p_1 Nd_2p_2 d_3p_3 Nd_3p_0 Nd_3p_1 Nd_3p_2 d_4p_3 Nd_4p_0 Nd_4p_1 Nd_4p_2 d_5p_3 Nd_5p_0 Nd_5p_1 Nd_5p_2 

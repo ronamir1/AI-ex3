@@ -1,0 +1,99 @@
+Propositions:
+d_0p_0 Nd_0p_0 d_0p_1 Nd_0p_1 d_0p_2 Nd_0p_2 d_1p_0 Nd_1p_0 d_1p_1 Nd_1p_1 d_1p_2 Nd_1p_2 d_2p_0 Nd_2p_0 d_2p_1 Nd_2p_1 d_2p_2 Nd_2p_2 d_3p_0 Nd_3p_0 d_3p_1 Nd_3p_1 d_3p_2 Nd_3p_2 
+Actions:
+Name: Md_0p_0p_1
+pre: d_0p_0 
+add: d_0p_1 Nd_0p_0 
+delete: d_0p_0 Nd_0p_1 
+Name: Md_0p_0p_2
+pre: d_0p_0 
+add: d_0p_2 Nd_0p_0 
+delete: d_0p_0 Nd_0p_2 
+Name: Md_0p_1p_0
+pre: d_0p_1 
+add: d_0p_0 Nd_0p_1 
+delete: d_0p_1 Nd_0p_0 
+Name: Md_0p_1p_2
+pre: d_0p_1 
+add: d_0p_2 Nd_0p_1 
+delete: d_0p_1 Nd_0p_2 
+Name: Md_0p_2p_0
+pre: d_0p_2 
+add: d_0p_0 Nd_0p_2 
+delete: d_0p_2 Nd_0p_0 
+Name: Md_0p_2p_1
+pre: d_0p_2 
+add: d_0p_1 Nd_0p_2 
+delete: d_0p_2 Nd_0p_1 
+Name: Md_1p_0p_1
+pre: d_1p_0 Nd_0p_1 Nd_0p_0 
+add: d_1p_1 Nd_1p_0 
+delete: d_1p_0 Nd_1p_1 
+Name: Md_1p_0p_2
+pre: d_1p_0 Nd_0p_2 Nd_0p_0 
+add: d_1p_2 Nd_1p_0 
+delete: d_1p_0 Nd_1p_2 
+Name: Md_1p_1p_0
+pre: d_1p_1 Nd_0p_0 Nd_0p_1 
+add: d_1p_0 Nd_1p_1 
+delete: d_1p_1 Nd_1p_0 
+Name: Md_1p_1p_2
+pre: d_1p_1 Nd_0p_2 Nd_0p_1 
+add: d_1p_2 Nd_1p_1 
+delete: d_1p_1 Nd_1p_2 
+Name: Md_1p_2p_0
+pre: d_1p_2 Nd_0p_0 Nd_0p_2 
+add: d_1p_0 Nd_1p_2 
+delete: d_1p_2 Nd_1p_0 
+Name: Md_1p_2p_1
+pre: d_1p_2 Nd_0p_1 Nd_0p_2 
+add: d_1p_1 Nd_1p_2 
+delete: d_1p_2 Nd_1p_1 
+Name: Md_2p_0p_1
+pre: d_2p_0 Nd_0p_1 Nd_1p_1 Nd_0p_0 Nd_1p_0 
+add: d_2p_1 Nd_2p_0 
+delete: d_2p_0 Nd_2p_1 
+Name: Md_2p_0p_2
+pre: d_2p_0 Nd_0p_2 Nd_1p_2 Nd_0p_0 Nd_1p_0 
+add: d_2p_2 Nd_2p_0 
+delete: d_2p_0 Nd_2p_2 
+Name: Md_2p_1p_0
+pre: d_2p_1 Nd_0p_0 Nd_1p_0 Nd_0p_1 Nd_1p_1 
+add: d_2p_0 Nd_2p_1 
+delete: d_2p_1 Nd_2p_0 
+Name: Md_2p_1p_2
+pre: d_2p_1 Nd_0p_2 Nd_1p_2 Nd_0p_1 Nd_1p_1 
+add: d_2p_2 Nd_2p_1 
+delete: d_2p_1 Nd_2p_2 
+Name: Md_2p_2p_0
+pre: d_2p_2 Nd_0p_0 Nd_1p_0 Nd_0p_2 Nd_1p_2 
+add: d_2p_0 Nd_2p_2 
+delete: d_2p_2 Nd_2p_0 
+Name: Md_2p_2p_1
+pre: d_2p_2 Nd_0p_1 Nd_1p_1 Nd_0p_2 Nd_1p_2 
+add: d_2p_1 Nd_2p_2 
+delete: d_2p_2 Nd_2p_1 
+Name: Md_3p_0p_1
+pre: d_3p_0 Nd_0p_1 Nd_1p_1 Nd_2p_1 Nd_0p_0 Nd_1p_0 Nd_2p_0 
+add: d_3p_1 Nd_3p_0 
+delete: d_3p_0 Nd_3p_1 
+Name: Md_3p_0p_2
+pre: d_3p_0 Nd_0p_2 Nd_1p_2 Nd_2p_2 Nd_0p_0 Nd_1p_0 Nd_2p_0 
+add: d_3p_2 Nd_3p_0 
+delete: d_3p_0 Nd_3p_2 
+Name: Md_3p_1p_0
+pre: d_3p_1 Nd_0p_0 Nd_1p_0 Nd_2p_0 Nd_0p_1 Nd_1p_1 Nd_2p_1 
+add: d_3p_0 Nd_3p_1 
+delete: d_3p_1 Nd_3p_0 
+Name: Md_3p_1p_2
+pre: d_3p_1 Nd_0p_2 Nd_1p_2 Nd_2p_2 Nd_0p_1 Nd_1p_1 Nd_2p_1 
+add: d_3p_2 Nd_3p_1 
+delete: d_3p_1 Nd_3p_2 
+Name: Md_3p_2p_0
+pre: d_3p_2 Nd_0p_0 Nd_1p_0 Nd_2p_0 Nd_0p_2 Nd_1p_2 Nd_2p_2 
+add: d_3p_0 Nd_3p_2 
+delete: d_3p_2 Nd_3p_0 
+Name: Md_3p_2p_1
+pre: d_3p_2 Nd_0p_1 Nd_1p_1 Nd_2p_1 Nd_0p_2 Nd_1p_2 Nd_2p_2 
+add: d_3p_1 Nd_3p_2 
+delete: d_3p_2 Nd_3p_1 

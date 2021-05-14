@@ -1,0 +1,2 @@
+Initial state: d_0p_0 Nd_0p_1 Nd_0p_2 Nd_0p_3 d_1p_0 Nd_1p_1 Nd_1p_2 Nd_1p_3 d_2p_0 Nd_2p_1 Nd_2p_2 Nd_2p_3 
+Goal state: d_0p_3 Nd_0p_0 Nd_0p_1 Nd_0p_2 d_1p_3 Nd_1p_0 Nd_1p_1 Nd_1p_2 d_2p_3 Nd_2p_0 Nd_2p_1 Nd_2p_2 
