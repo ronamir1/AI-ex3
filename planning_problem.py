@@ -65,10 +65,12 @@ class PlanningProblem:
         self.expanded += 1
         successors = list()
         for a in self.actions:
-            if a.all_preconds_in_list(state):
+            if a.all_preconds_in_list(state):  # valid action
                 state_set = set(state)
                 successor = set(a.get_add())
+                # previous propositions minus the ones the action deletes
                 state_set = state_set.difference(set(a.get_delete()))
+                # the successor is the union of the created state_set and the propositions added by action
                 successors.append((frozenset(successor.union(state_set)), a, 1))
         return successors
 
@@ -112,23 +114,24 @@ def max_level(state, planning_problem):
     pg_init = PlanGraphLevel()                   #create a new plan graph level (level is the action layer and the propositions layer)
     pg_init.set_proposition_layer(prop_layer_init)   #update the new plan graph level with the the proposition layer
     """
-    prop_layer_init = PropositionLayer()          #create a new proposition layer
+    prop_layer_init = PropositionLayer()  # create a new proposition layer
     for prop in state:
-        prop_layer_init.add_proposition(prop)        #update the proposition layer with the propositions of the state
-    pg_init = PlanGraphLevel()                   #create a new plan graph level (level is the action layer and the propositions layer)
-    pg_init.set_proposition_layer(prop_layer_init)   #update the new plan graph level with the the proposition layer
+        prop_layer_init.add_proposition(prop)  # update the proposition layer with the propositions of the state
+    pg_init = PlanGraphLevel()  # create a new plan graph level (level is the action layer and the propositions layer)
+    pg_init.set_proposition_layer(prop_layer_init)  # update the new plan graph level with the the proposition layer
     pg_prev = pg_init
-    if planning_problem.is_goal_state(state):
+    if planning_problem.is_goal_state(state):  # already have all goal propositions so value is 0
         return 0
     pg_next = PlanGraphLevel()
-    pg_next.expand_without_mutex(pg_init)
+    pg_next.expand_without_mutex(pg_init)  # expand planning graph without mutex relations
     i = 1
-    while not is_fixed([pg_prev, pg_next], 1) and not (planning_problem.is_goal_state(pg_next.get_proposition_layer().get_propositions())):
+    while not is_fixed([pg_prev, pg_next], 1) and not (
+            planning_problem.is_goal_state(pg_next.get_proposition_layer().get_propositions())):
         pg_prev = pg_next
         pg_next = PlanGraphLevel()
         pg_next.expand_without_mutex(pg_prev)
         i += 1
-    if is_fixed([pg_prev, pg_next], 1):
+    if is_fixed([pg_prev, pg_next], 1):  # graph hasn't changed in last expansion so goal is not reachable
         return float('inf')
     return i
 
@@ -138,24 +141,25 @@ def level_sum(state, planning_problem):
     The heuristic value is the sum of sub-goals level they first appeared.
     If the goal is not reachable from the state your heuristic should return float('inf')
     """
-    prop_layer_init = PropositionLayer()
+    prop_layer_init = PropositionLayer()  # create a new proposition layer
     for prop in state:
-        prop_layer_init.add_proposition(prop)
-    pg_init = PlanGraphLevel()
-    pg_init.set_proposition_layer(prop_layer_init)
+        prop_layer_init.add_proposition(prop)  # update the proposition layer with the propositions of the state
+    pg_init = PlanGraphLevel()  # create a new plan graph level (level is the action layer and the propositions layer)
+    pg_init.set_proposition_layer(prop_layer_init)  # update the new plan graph level with the the proposition layer
     pg_prev = pg_init
-    if planning_problem.is_goal_state(state):
+    if planning_problem.is_goal_state(state):  # already have all goal propositions so value is 0
         return 0
-    goals = planning_problem.goal
-    found_goals = set()
+    goals = planning_problem.goal  # goals is list of propositions
+    found_goals = set()  # set of encountered goals
     levels_sum = 0
     i = 1
-    while not len(goals) == len(found_goals):
+    while not len(goals) == len(found_goals):  # continue until all sub-goals found
         pg_next = PlanGraphLevel()
-        pg_next.expand_without_mutex(pg_prev)
-        if is_fixed([pg_prev, pg_next], 1):
+        pg_next.expand_without_mutex(pg_prev)  # expand planning graph without mutex relations
+        if is_fixed([pg_prev, pg_next], 1): # graph hasn't changed in last expansion so goal is not reachable
             return float('inf')
         for goal in goals:
+            # new goal proposition encountered - sum up the current level and add to found_goals
             if goal not in found_goals and goal in pg_next.get_proposition_layer().get_propositions():
                 levels_sum += i
                 found_goals.add(goal)
