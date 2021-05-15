@@ -5,12 +5,10 @@ def create_domain_file(domain_file_name, n_, m_):
     disks = ['d_%s' % i for i in list(range(n_))]  # [d_0,..., d_(n_ - 1)]
     pegs = ['p_%s' % i for i in list(range(m_))]  # [p_0,..., p_(m_ - 1)]
     domain_file = open(domain_file_name, 'w')  # use domain_file.write(str) to write to domain_file
-    disk_peg = []
     props = []
     for disk in disks:
         for peg in pegs:
             props.append(disk + peg)
-            disk_peg.append(disk + peg)
             props.append("N" + disk + peg)
     domain_text = "Propositions:\n"
     for prop in props:
@@ -67,7 +65,6 @@ if __name__ == '__main__':
 
     n = int(float(sys.argv[1]))  # number of disks
     m = int(float(sys.argv[2]))  # number of pegs
-
 
     domain_file_name = 'hanoi_%s_%s_domain.txt' % (n, m)
     problem_file_name = 'hanoi_%s_%s_problem.txt' % (n, m)
