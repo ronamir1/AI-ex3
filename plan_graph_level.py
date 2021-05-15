@@ -63,8 +63,8 @@ class PlanGraphLevel(object):
         for action in all_actions:
             if not previous_proposition_layer.all_preconds_in_layer(action):
                 continue
-            is_mutex = False
-            for p in action.get_pre():
+            is_mutex = False  # used to break the loop
+            for p in action.get_pre():  # go over action's preconditions
                 if is_mutex:
                     break
                 for q in action.get_pre():
@@ -104,20 +104,17 @@ class PlanGraphLevel(object):
         self.proposition_layer.add_proposition(prop) adds the proposition prop to the current layer
 
         """
-        # maybe delete
         current_layer_actions = self.action_layer.get_actions()
         props = dict()
         for action in current_layer_actions:
-            for p in action.get_add():
-                if p.name in props:
+            for p in action.get_add():  # go over the propositions this action adds
+                if p.name in props:  # already exists, only add producer
                     props[p.name].add_producer(action)
                 else:
-                    p.add_producer(action)
-                    props[p.name] = p
+                    props[p.name] = Proposition(p.name)  # create new proposition
+                    props[p.name].add_producer(action)
         for p in props.values():
             self.proposition_layer.add_proposition(p)
-
-
 
     def update_mutex_proposition(self):
         """
@@ -155,6 +152,7 @@ class PlanGraphLevel(object):
         """
         Questions 11 and 12
         You don't have to use this function
+        Just like expand but without computation of mutex relations
         """
         previous_layer_proposition = previous_layer.get_proposition_layer()
         self.update_action_layer(previous_layer_proposition)
@@ -182,11 +180,13 @@ def have_competing_needs(a1, a2, mutex_props):
     """
     a1_pre = a1.get_pre()
     a2_pre = a2.get_pre()
+
     for p in a1_pre:
         for q in a2_pre:
             if Pair(p, q) in mutex_props:
                 return True
     return False
+
 
 def mutex_propositions(prop1, prop2, mutex_actions_list):
     """
